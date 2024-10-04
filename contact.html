@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <script src="./app.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Contact me</h1>
+        <form id="contact-form">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="category">Kategori Pesan:</label>
+            <select id="category" name="category" required>
+                <option value="">Pilih Kategori</option>
+                <option value="pertanyaan">Pertanyaan</option>
+                <option value="saran">Saran</option>
+                <option value="masalah">Masalah</option>
+            </select>
+
+            <label for="message">Pesan:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <label for="response">Ingin Menerima Balasan?</label>
+            <input type="radio" id="yes" name="response" value="yes">
+            <label for="yes">Ya</label>
+            <input type="radio" id="no" name="response" value="no">
+            <label for="no">Tidak</label>
+
+            <input type="submit" value="Kirim Pesan">
+        </form>
+        <div id="response-message"></div>
+    </main>
+    <script>
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const responseMessage = document.getElementById('response-message');
+            responseMessage.innerHTML = 'Pesan telah terkirim!';
+        });
+    </script>
+</body>
+</html>
